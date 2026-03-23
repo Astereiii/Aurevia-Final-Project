@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aurevia Health & Beauty</title>
+<link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="promo-bar">
+  Buy More, Save More — <span>Up to 35% off bundles!</span>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="storefront-homepage.html" class="logo">Aurevia</a>
+    <div class="search-bar">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search for products, brands and more…" />
+    </div>
+    <div class="header-icons">
+      <a href="#" class="header-icon-btn" onclick="(function(){var u=JSON.parse(localStorage.getItem('aurevia_user')||'null');window.location.href=(u&&u.loggedIn)?'profile.html':'login.html';return false;})()"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Account</span></a>
+      <a href="order-history.html" class="header-icon-btn"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span>Wishlist</span></a>
+      <a href="cart.html" class="header-icon-btn"><div class="cart-badge">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="badge">3</span>
+        </div><span>Cart</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="sub-nav">
+  <div class="sub-nav-inner">
+    <span class="active">All</span>
+    <span>Skincare</span>
+    <span>Hair Care</span>
+    <span>Body Care</span>
+    <span>Wellness</span>
+    <span>Natural</span>
+    <span>Gifts</span>
+    <span class="free-ship">🌿 Free Shipping on orders PHP 999 and above</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-slide active" id="slide-0">
+    <div class="hero-content">
+      <span class="hero-tag">✦ Nordic Organic</span>
+      <h1>Urtekram Nordic Beauty</h1>
+      <p>Nature-inspired skincare with Scandinavian simplicity. Pure ingredients sourced from Nordic forests — for sensitive, conscious skin.</p>
+      <a href="product-catalog.html" class="btn-primary">Shop the Collection</a>
+    </div>
+    <div class="hero-image">
+      <img src="pictures/hero-img-1.jfif" alt="Hero product 1" />
+      <div class="hero-floater">
+        <strong>Lavender & Aloe</strong>
+        Certified Organic · pH-balanced
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-slide" id="slide-1" style="background: linear-gradient(135deg, #e4eee8 0%, #d4e4d8 100%);">
+    <div class="hero-content">
+      <span class="hero-tag" style="background: var(--dusty-rose);">✦ New Season</span>
+      <h1>Gentle Care for Every Skin</h1>
+      <p>Dermatologically tested formulas free from parabens, sulfates, and synthetic fragrances. Kind to you, kind to the planet.</p>
+      <a href="product-catalog.html" class="btn-primary" style="background: var(--sage);">Explore New Arrivals</a>
+    </div>
+    <div class="hero-image">
+      <img src="pictures/hero-img-2.jfif" alt="Hero product 2" />
+      <div class="hero-floater">
+        <strong>Rose & Chamomile</strong>
+        Vegan · Eco-certified
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-slide" id="slide-2" style="background: linear-gradient(135deg, #f5ede4 0%, #e8d8cc 100%);">
+    <div class="hero-content">
+      <span class="hero-tag" style="background: var(--warm-brown);">✦ Best Seller</span>
+      <h1>Nourish from the Inside Out</h1>
+      <p>Rich botanical formulas crafted with cold-pressed oils and plant actives — deeply moisturising, naturally radiant results.</p>
+      <a href="product.html?id=pr9" class="btn-primary">Shop Best Sellers</a>
+    </div>
+    <div class="hero-image">
+      <img src="pictures/hero-img-3.png" alt="Hero product 3" />
+      <div class="hero-floater">
+        <strong>Argan & Jojoba</strong>
+        Cold-pressed · Cruelty-free
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-slide" id="slide-3" style="background: linear-gradient(135deg, #eae4f0 0%, #d8d0e8 100%);">
+    <div class="hero-content">
+      <span class="hero-tag" style="background: var(--gold);">✦ Limited Edition</span>
+      <h1>Ritual Beauty, Redefined</h1>
+      <p>A curated collection of sensorial skincare — slow beauty for those who believe in the power of intentional self-care.</p>
+      <a href="product-catalog.html" class="btn-primary" style="background: var(--gold);">Explore Collection</a>
+    </div>
+    <div class="hero-image">
+      <img src="pictures/hero-img-4.jfif" alt="Hero product 4" />
+      <div class="hero-floater">
+        <strong>Neroli & Frankincense</strong>
+        Limited · 500 units only
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-dots">
+    <div class="dot active" data-slide="0"></div>
+    <div class="dot" data-slide="1"></div>
+    <div class="dot" data-slide="2"></div>
+    <div class="dot" data-slide="3"></div>
+  </div>
+</div>
+
+<section>
+  <div class="section-header">
+    <div class="section-label">
+      <span class="tag">Natural</span>
+      <h2 class="section-title">⚡ Flash Sales – 20% Off</h2>
+    </div>
+    <a href="product-catalog.html" class="section-cta">View All →</a>
+  </div>
+  <div class="product-grid">
+    <div class="product-card" data-id="pr1">
+      <div class="product-img">
+        <img src="pictures/pr1.jpg" alt="Olive and Sage Natural Soap" />
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Olive and Sage Natural Soap</div>
+        <div class="product-sub">100g · Cold Process</div>
+        <div class="product-price">
+          <span class="price-current">₱155</span>
+          <span class="price-original">₱193</span>
+          <span class="badge-sale">-20%</span>
+        </div>
+        <div class="card-actions">
+          <div class="qty-control">
+            <button type="button" class="qty-btn qty-minus">−</button>
+            <span class="qty-value">1</span>
+            <button type="button" class="qty-btn qty-plus">+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="pr2">
+      <div class="product-img">
+        <img src="pictures/pr2.jpg" alt="Lavender Body Milk" />
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Lavender Body Essence Body Milk</div>
+        <div class="product-sub">250ml · Daily Moisture</div>
+        <div class="product-price">
+          <span class="price-current">₱389</span>
+          <span class="price-original">₱486</span>
+          <span class="badge-sale">-20%</span>
+        </div>
+        <div class="card-actions">
+          <div class="qty-control">
+            <button type="button" class="qty-btn qty-minus">−</button>
+            <span class="qty-value">1</span>
+            <button type="button" class="qty-btn qty-plus">+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="pr3">
+      <div class="product-img">
+        <img src="pictures/pr3.jpg" alt="Gentle Touch Body Milk Lotion" />
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Gentle Touch Body Milk Lotion</div>
+        <div class="product-sub">200ml · Sensitive Skin</div>
+        <div class="product-price">
+          <span class="price-current">₱299</span>
+          <span class="price-original">₱374</span>
+          <span class="badge-sale">-20%</span>
+        </div>
+        <div class="card-actions">
+          <div class="qty-control">
+            <button type="button" class="qty-btn qty-minus">−</button>
+            <span class="qty-value">1</span>
+            <button type="button" class="qty-btn qty-plus">+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="pr4">
+      <div class="product-img">
+        <img src="pictures/pr4.jpg" alt="Nordic Glow Face Serum" />
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Nordic Glow Face Serum</div>
+        <div class="product-sub">30ml · All Skin Types</div>
+        <div class="product-price">
+          <span class="price-current">₱620</span>
+          <span class="price-original">₱775</span>
+          <span class="badge-sale">-20%</span>
+        </div>
+        <div class="card-actions">
+          <div class="qty-control">
+            <button type="button" class="qty-btn qty-minus">−</button>
+            <span class="qty-value">1</span>
+            <button type="button" class="qty-btn qty-plus">+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-header">
+    <div class="section-label">
+      <span class="tag featured">Fresh Drops</span>
+      <h2 class="section-title">✨ New in Store</h2>
+    </div>
+    <a href="product-catalog.html" class="section-cta">View All →</a>
+  </div>
+  <div class="product-grid">
+    <div class="product-card" data-id="pr5">
+      <div class="product-img">
+        <img src="pictures/pr5.jpg" alt="Calm Root Scalp Elixir" />
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Calm Root Scalp Elixir</div>
+        <div class="product-sub">50ml · New Launch</div>
+        <div class="product-price">
+          <span class="price-current">₱540</span>
+        </div>
+        <div class="card-actions">
+          <div class="qty-control">
+            <button type="button" class="qty-btn qty-minus">−</button>
+            <span class="qty-value">1</span>
+            <button type="button" class="qty-btn qty-plus">+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="pr6">
+      <div class="product-img">
+        <img src="pictures/pr6.jpg" alt="Rosemary Strength Conditioner" />
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Rosemary Strength Conditioner</div>
+        <div class="product-sub">300ml · Hair Fall Care</div>
+        <div class="product-price">
+          <span class="price-current">₱435</span>
+        </div>
+        <div class="card-actions">
+          <div class="qty-control">
+            <button type="button" class="qty-btn qty-minus">−</button>
+            <span class="qty-value">1</span>
+            <button type="button" class="qty-btn qty-plus">+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="pr7">
+      <div class="product-img">
+        <img src="pictures/pr7.jpg" alt="Avera Hydrating Cream" />
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Avera Hydrating Cream</div>
+        <div class="product-sub">80ml · Deep Moisture</div>
+        <div class="product-price">
+          <span class="price-current">₱520</span>
+        </div>
+        <div class="card-actions">
+          <div class="qty-control">
+            <button type="button" class="qty-btn qty-minus">−</button>
+            <span class="qty-value">1</span>
+            <button type="button" class="qty-btn qty-plus">+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="pr8">
+      <div class="product-img">
+        <img src="pictures/pr8.jpg" alt="Pure Mist Hair Refresher" />
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Pure Mist Hair Refresher</div>
+        <div class="product-sub">120ml · Daily Refresh</div>
+        <div class="product-price">
+          <span class="price-current">₱310</span>
+        </div>
+        <div class="card-actions">
+          <div class="qty-control">
+            <button type="button" class="qty-btn qty-minus">−</button>
+            <span class="qty-value">1</span>
+            <button type="button" class="qty-btn qty-plus">+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-header">
+    <div class="section-label">
+      <span class="tag">Collections</span>
+      <h2 class="section-title">Shop by Category</h2>
+    </div>
+    <a href="product-catalog.html" class="section-cta">All Categories →</a>
+  </div>
+  <div class="category-grid">
+    <a class="category-card" href="product-catalog.html">
+      <div class="category-icon skincare">🫧</div>
+      <div class="category-name">Skincare</div>
+      <div class="category-count">12 Products</div>
+    </a>
+    <a class="category-card" href="product-catalog.html">
+      <div class="category-icon beauty">💆</div>
+      <div class="category-name">Hair Care</div>
+      <div class="category-count">10 Products</div>
+    </a>
+    <a class="category-card" href="product-catalog.html">
+      <div class="category-icon health">🌿</div>
+      <div class="category-name">Wellness</div>
+      <div class="category-count">8 Products</div>
+    </a>
+    <a class="category-card" href="product-catalog.html">
+      <div class="category-icon natural">🌸</div>
+      <div class="category-name">Body Care</div>
+      <div class="category-count">9 Products</div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<section>
+  <div class="section-header">
+    <div class="section-label">
+      <span class="tag">Popular</span>
+      <h2 class="section-title">⭐ Bestselling Products</h2>
+    </div>
+    <a href="product-catalog.html" class="section-cta">View All →</a>
+  </div>
+  <div class="product-grid">
+    <div class="product-card" data-id="pr9">
+      <div class="product-img">
+        <img src="pictures/pr9.jpg" alt="Silken Repair Hair Oil" />
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Silken Repair Hair Oil</div>
+        <div class="product-sub">60ml · Best Seller</div>
+        <div class="product-price">
+          <span class="price-current">₱470</span>
+        </div>
+        <div class="card-actions">
+          <div class="qty-control">
+            <button type="button" class="qty-btn qty-minus">−</button>
+            <span class="qty-value">1</span>
+            <button type="button" class="qty-btn qty-plus">+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="pr10">
+      <div class="product-img">
+        <img src="pictures/pr10.jpg" alt="Nordic Calm Face Wash" />
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Nordic Calm Face Wash</div>
+        <div class="product-sub">150ml · Gentle Cleanse</div>
+        <div class="product-price">
+          <span class="price-current">₱325</span>
+        </div>
+        <div class="card-actions">
+          <div class="qty-control">
+            <button type="button" class="qty-btn qty-minus">−</button>
+            <span class="qty-value">1</span>
+            <button type="button" class="qty-btn qty-plus">+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="pr11">
+      <div class="product-img">
+        <img src="pictures/pr11.jpg" alt="Forest Dew Toner Mist" />
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Forest Dew Toner Mist</div>
+        <div class="product-sub">100ml · Refreshing</div>
+        <div class="product-price">
+          <span class="price-current">₱285</span>
+        </div>
+        <div class="card-actions">
+          <div class="qty-control">
+            <button type="button" class="qty-btn qty-minus">−</button>
+            <span class="qty-value">1</span>
+            <button type="button" class="qty-btn qty-plus">+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="pr12">
+      <div class="product-img">
+        <img src="pictures/pr12.jpg" alt="Botanical Repair Mask" />
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Botanical Repair Mask</div>
+        <div class="product-sub">200ml · Weekly Care</div>
+        <div class="product-price">
+          <span class="price-current">₱599</span>
+        </div>
+        <div class="card-actions">
+          <div class="qty-control">
+            <button type="button" class="qty-btn qty-minus">−</button>
+            <span class="qty-value">1</span>
+            <button type="button" class="qty-btn qty-plus">+</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="about-section">
+  <div class="about-inner">
+    <div class="brand-tag">About Aurevia</div>
+    <h2>Clean Beauty, Thoughtfully Curated</h2>
+    <p>Aurevia Health & Beauty is your destination for elevated self-care — where nature, efficacy, and modern wellness come together. We carefully source products that are gentle, high-performing, and consciously made.</p>
+    <p>From nourishing hair essentials to soothing skincare and body rituals, every item in our collection is selected to help you feel radiant — naturally.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Aurevia</div>
+      <p>Aurevia Health & Beauty rooted in nature. Certified organic skincare and wellness products for a cleaner, more conscious lifestyle.</p>
+      <div class="social-icons" style="margin-top: 20px;">
+        <a href="#">f</a>
+        <a href="#">in</a>
+        <a href="#">ig</a>
+        <a href="#">yt</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <ul>
+        <li>📍 Makati, Philippines</li>
+        <li>📞 +63 917 123 4567</li>
+        <li>✉ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fe969b929291be9f8b8c9b88979fd08e96">[email&#160;protected]</a></li>
+        <li>Mon–Sat, 9AM–6PM</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul>
+        <li>Facebook</li>
+        <li>Instagram</li>
+        <li>Pinterest</li>
+        <li>YouTube</li>
+        <li>TikTok</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <p style="font-size:12px;line-height:1.6;margin-bottom:12px;">Subscribe and get exclusive deals, beauty tips, and new arrivals first.</p>
+      <div class="newsletter-input-wrap">
+        <input type="email" placeholder="Your email address" />
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Aurevia Health &amp; Beauty. All rights reserved.</span>
+    <span>Privacy Policy · Terms &amp; Conditions · Cookie Settings</span>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

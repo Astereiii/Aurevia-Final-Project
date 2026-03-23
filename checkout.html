@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout – Aurevia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+<!-- ── CHECKOUT FLOW ── -->
+<div id="checkoutFlow">
+    <header class="custom-header">
+        <button class="back-btn" onclick="handleBackNavigation()">&larr;</button>
+        <span id="titleText">Check Out</span>
+    </header>
+
+    <main class="container my-5">
+        <div class="row g-5">
+            <div class="col-lg-8">
+
+                <!-- Cart Items -->
+                <div id="cartItems">
+                    <div class="item-card">
+                        <div class="bg-white rounded me-3" style="min-width:50px; height:50px;"></div>
+                        <div class="flex-grow-1">
+                            <span>Veloura SilkShine Shampoo 250 ml</span><br>
+                            <div class="qty-controls d-inline-flex">
+                                <button class="qty-btn" onclick="changeQty('item1', -1)">-</button>
+                                <span class="qty-val" id="qty-item1">1</span>
+                                <button class="qty-btn" onclick="changeQty('item1', 1)">+</button>
+                            </div>
+                        </div>
+                        <span class="ms-auto" id="price-item1">₱250.00</span>
+                    </div>
+                    <div class="item-card">
+                        <div class="bg-white rounded me-3" style="min-width:50px; height:50px;"></div>
+                        <div class="flex-grow-1">
+                            <span>Pure Verdant Clarifying Scalp Wash 500 ml</span><br>
+                            <div class="qty-controls d-inline-flex">
+                                <button class="qty-btn" onclick="changeQty('item2', -1)">-</button>
+                                <span class="qty-val" id="qty-item2">1</span>
+                                <button class="qty-btn" onclick="changeQty('item2', 1)">+</button>
+                            </div>
+                        </div>
+                        <span class="ms-auto" id="price-item2">₱449.00</span>
+                    </div>
+                    <div class="item-card">
+                        <div class="bg-white rounded me-3" style="min-width:50px; height:50px;"></div>
+                        <div class="flex-grow-1">
+                            <span>Hyacinth Moisture Recovery Conditioner 300 ml</span><br>
+                            <div class="qty-controls d-inline-flex">
+                                <button class="qty-btn" onclick="changeQty('item3', -1)">-</button>
+                                <span class="qty-val" id="qty-item3">1</span>
+                                <button class="qty-btn" onclick="changeQty('item3', 1)">+</button>
+                            </div>
+                        </div>
+                        <span class="ms-auto" id="price-item3">₱520.00</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Payment -->
+                <div id="stepPayment">
+                    <div class="section-pill">Payment Method</div>
+                    <div class="row g-3 mb-4" id="mainMethods">
+                        <div class="col-4"><div class="method-btn" id="tab-ewallet" onclick="showPaymentDetail('ewallet')">E-WALLET /<br>CARD</div></div>
+                        <div class="col-4"><div class="method-btn" id="tab-cod" onclick="showPaymentDetail('cod')">CASH ON<br>DELIVERY</div></div>
+                        <div class="col-4"><div class="method-btn" id="tab-paylater" onclick="showPaymentDetail('paylater')">PAY LATER</div></div>
+                    </div>
+
+                    <div id="detail-ewallet" class="hidden">
+                        <div class="row g-3 mb-3">
+                            <div class="col-4"><div class="method-btn" id="sub-card" onclick="selectSub('card')">CARD<br>PAYMENT</div></div>
+                            <div class="col-4"><div class="method-btn" id="sub-gcash" onclick="selectSub('gcash')">GCASH</div></div>
+                        </div>
+                        <div id="form-card" class="hidden">
+                            <input type="text" id="cardNum" class="form-control mb-2" placeholder="Card Number" maxlength="19">
+                            <div class="row g-2">
+                                <div class="col-6"><input type="text" id="expiry" class="form-control" placeholder="MM/YY" maxlength="5"></div>
+                                <div class="col-6"><input type="password" class="form-control" placeholder="CVV" maxlength="4"></div>
+                            </div>
+                        </div>
+                        <div id="form-gcash" class="hidden">
+                            <input type="text" id="gcashNum" class="form-control" placeholder="09XXXXXXXXX (11 digits)" maxlength="11">
+                        </div>
+                    </div>
+
+                    <div id="detail-cod" class="hidden">
+                        <div class="method-btn active mb-3" style="width: 180px; pointer-events: none;">CASH ON DELIVERY ✓</div>
+                        <div class="p-3 border rounded bg-light" style="border-left: 5px solid var(--brand-green) !important;">
+                            <strong>Expected Delivery: 14 - 18 Feb 2026</strong><br>
+                            <small class="text-muted">Payment is made upon the arrival of your order.</small>
+                        </div>
+                    </div>
+
+                    <div id="detail-paylater" class="hidden">
+                        <div class="selection-box" style="max-width: 450px;">
+                            <div class="text-center fw-bold p-2" style="background: var(--light-green)">Pay Later</div>
+                            <div class="box-row" onclick="setInstallment(this)"><span>3 Months</span> <strong>₱430.07</strong></div>
+                            <div class="box-row" onclick="setInstallment(this)"><span>6 Months</span> <strong>₱217.71</strong></div>
+                            <div class="box-row" onclick="setInstallment(this)"><span>12 Months</span> <strong>₱111.57</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Shipping -->
+                <div id="stepShipping" class="hidden">
+                    <div class="section-pill">Shipping Option</div>
+                    <div class="selection-box mb-4">
+                        <div class="box-row active" id="ship-std" onclick="setShipping('std', 50)">
+                            <div><b>Standard</b><br><small class="text-muted">Estimated: 14 Feb - 18 Feb</small></div>
+                            <b id="stdPrice">₱50.00</b>
+                        </div>
+                        <div class="box-row" id="ship-exp" onclick="setShipping('exp', 100)">
+                            <div><b>Express</b><br><small class="text-muted">Guaranteed to get by Feb 14</small></div>
+                            <b id="expPrice">₱100.00</b>
+                        </div>
+                    </div>
+                    <div class="section-pill">Shop Voucher</div>
+                    <div class="selection-box" id="voucherBox" style="border-color: var(--brand-green); cursor: pointer;" onclick="toggleVoucher()">
+                        <div class="box-row" style="background: #f9fff5">
+                            <div><b>ERCVOUCHER</b><br><small>Free Shipping w/ no min. spend</small></div>
+                            <div id="voucherStatus" style="color: #c9a227;">●</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="col-lg-4">
+                <div class="summary-card">
+                    <h4 class="text-center border-bottom pb-3 mb-3">Order Summary</h4>
+                    <div class="d-flex justify-content-between mb-2"><span>Subtotal</span><span id="subtotalText">₱1219.00</span></div>
+                    <div class="d-flex justify-content-between mb-2" id="summaryShippingRow">
+                        <span>Shipping</span><span id="shipText">₱50.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between fw-bold border-top pt-3 mt-3" style="font-size: 1.25rem;">
+                        <span>Total</span><span id="totalText">₱1269.00</span>
+                    </div>
+                    <input type="text" class="form-control mt-4 text-center border-0 py-2" placeholder="Discount Code or Gift Card">
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-4 px-1">
+                    <a class="return-link" onclick="handleBackNavigation()">&lt; Return to cart</a>
+                    <button class="btn btn-continue" id="mainBtn" onclick="onContinue()">
+                        <div class="spinner" id="btnSpinner"></div>
+                        <span id="btnText">Continue</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-legal">
+        <div class="container text-center text-lg-start">
+            <a data-bs-toggle="modal" data-bs-target="#policyModal" onclick="jumpToPolicy('refund-policy')">Refund Policy</a>
+            <a data-bs-toggle="modal" data-bs-target="#policyModal" onclick="jumpToPolicy('privacy-policy')">Privacy Policy</a>
+            <a data-bs-toggle="modal" data-bs-target="#policyModal" onclick="jumpToPolicy('tos-policy')">Terms of Service</a>
+        </div>
+    </footer>
+</div>
+
+<!-- ── SUCCESS SCREEN (only one) ── -->
+<div id="successScreen" class="hidden">
+    <div class="promo-bar">Buy More, Save More — <span>Up to 25% off bundles!</span></div>
+    <nav class="nav-container">
+        <div class="logo-box">Aurevia H&amp;B</div>
+        <div class="d-flex align-items-center gap-4">
+            <div class="search-wrapper">
+                <i class="fa fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search for a product or brand...">
+            </div>
+            <div class="nav-icons">
+                <i class="fa-regular fa-user"></i>
+                <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+        </div>
+    </nav>
+    <div class="container text-center">
+        <div class="success-box">
+            <i class="fa-solid fa-circle-check mb-3" style="color: var(--brand-green); font-size: 3rem;"></i>
+            <h1>THANK YOU FOR YOUR ORDER!</h1>
+            <p>Your order #VEL-8829 has been confirmed.</p>
+            <div class="final-summary">
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                    <h6 class="fw-bold mb-0">Order Summary</h6>
+                    <button class="btn btn-sm btn-link text-decoration-none p-0 fw-bold" style="color: var(--brand-green)" onclick="toggleReceipt()">View Items ↓</button>
+                </div>
+                <div id="purchasedItemsList" class="hidden mb-3"></div>
+                <div class="d-flex justify-content-between small mb-1">
+                    <span>Payment Method:</span>
+                    <span id="finalMethodText" class="fw-bold text-uppercase"></span>
+                </div>
+                <div class="d-flex justify-content-between small mb-3">
+                    <span>Status:</span>
+                    <span class="text-success fw-bold">Processing</span>
+                </div>
+                <div class="p-3 rounded" style="background: #f1f8e9; border: 1px dashed var(--brand-green);">
+                    <div class="d-flex justify-content-between fw-bold">
+                        <span id="finalTotalLabel">Total Paid:</span>
+                        <span id="finalTotalVal"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex gap-3 justify-content-center mt-4 mb-5">
+            <button class="btn btn-continue" style="background-color: var(--dark-olive);" onclick="window.location.href='storefront-homepage.html'">Return to Shop</button>
+            <button class="btn btn-continue" style="background-color: var(--brand-green);" onclick="window.location.href='order-history.html'">View Order History</button>
+        </div>
+    </div>
+</div>
+
+<!-- ── POLICY MODAL ── -->
+<div class="modal fade" id="policyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">📄 Policies &amp; Terms</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div id="policyList" class="sticky-top" style="top: 0;">
+                            <a class="policy-nav-link active" onclick="jumpToPolicy('refund-policy')" href="#">Refund Policy</a>
+                            <a class="policy-nav-link" onclick="jumpToPolicy('privacy-policy')" href="#">Privacy Policy</a>
+                            <a class="policy-nav-link" onclick="jumpToPolicy('tos-policy')" href="#">Terms of Service</a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="policy-scroll-area" id="policyContentArea">
+                            <div id="refund-policy" class="policy-section mb-5">
+                                <h4 class="fw-bold mb-3"><i class="fa-solid fa-rotate-left me-2"></i> Refund Policy</h4>
+                                <p>Items must be returned within 7–14 days, unused and in original packaging with proof of purchase. Sale items, gift cards, and personalized products are non-refundable. Approved refunds are processed within 5–10 business days. Contact us at hello@aurevia.ph for refund requests.</p>
+                            </div>
+                            <hr class="my-5">
+                            <div id="privacy-policy" class="policy-section mb-5">
+                                <h4 class="fw-bold mb-3"><i class="fa-solid fa-lock me-2"></i> Privacy Policy</h4>
+                                <p>We collect personal details, payment information, and order history to process orders and improve our services. We do not sell your data. We may share with trusted third parties (payment processors, delivery services) to fulfill orders. Contact us at hello@aurevia.ph for privacy concerns.</p>
+                            </div>
+                            <hr class="my-5">
+                            <div id="tos-policy" class="policy-section">
+                                <h4 class="fw-bold mb-3"><i class="fa-solid fa-scroll me-2"></i> Terms of Service</h4>
+                                <p>By using our website you agree to use it only for lawful purposes. All products are subject to availability. We reserve the right to refuse or cancel orders. All content on this website is owned by us. These terms are governed by the laws of the Philippines. Contact us at hello@aurevia.ph for questions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Aurevia</div>
+      <p>Aurevia Health &amp; Beauty rooted in nature. Certified organic skincare and wellness products for a cleaner, more conscious lifestyle.</p>
+      <div class="social-icons" style="margin-top: 20px;">
+        <a href="#">f</a><a href="#">in</a><a href="#">ig</a><a href="#">yt</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <ul>
+        <li>📍 Makati, Philippines</li>
+        <li>📞 +63 917 123 4567</li>
+        <li>✉ hello@aurevia.ph</li>
+        <li>Mon–Sat, 9AM–6PM</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul><li>Facebook</li><li>Instagram</li><li>Pinterest</li><li>YouTube</li><li>TikTok</li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <p style="font-size:12px;line-height:1.6;margin-bottom:12px;">Subscribe and get exclusive deals, beauty tips, and new arrivals first.</p>
+      <div class="newsletter-input-wrap">
+        <input type="email" placeholder="Your email address" />
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Aurevia Health &amp; Beauty. All rights reserved.</span>
+    <span>Privacy Policy · Terms &amp; Conditions · Cookie Settings</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="checkout.js"></script>
+</body>
+</html>

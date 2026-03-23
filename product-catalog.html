@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Catalog – Aurevia</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Allura&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="catalog.css" />
+</head>
+<body>
+
+  <div class="promo-bar">Buy More, Save More — <span>Up to 25% off bundles!</span></div>
+
+  <header>
+    <div class="header-inner">
+      <a href="storefront-homepage.html" class="logo">Aurevia</a>
+
+      <div class="search-bar">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input type="text" placeholder="Search for a product or brand..." />
+      </div>
+
+      <div class="header-icons">
+        <a href="#" class="header-icon-btn" onclick="(function(){var u=JSON.parse(localStorage.getItem('aurevia_user')||'null');window.location.href=(u&&u.loggedIn)?'profile.html':'login.html';return false;})()"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg><span>Account</span></a>
+
+        <a href="order-history.html" class="header-icon-btn"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg><span>Wishlist</span></a>
+
+        <a href="cart.html" class="header-icon-btn"><div class="cart-badge">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="badge">3</span>
+          </div><span>Cart</span></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="sub-nav page-subnav">
+    <div class="sub-nav-inner page-subnav-inner">
+      <a href="storefront-homepage.html">Home</a>
+      <a href="#" class="active">Product Catalog</a>
+      <a href="product.html?id=pr4">Featured Product</a>
+      <span class="free-ship">🌿 Curated wellness and beauty discoveries</span>
+    </div>
+  </div>
+
+  <main class="catalog-page">
+
+    <section class="catalog-hero reveal">
+      <div class="catalog-left-panel soft-lime">
+        <div class="copy-block">
+          <h1>
+            <span class="headline-line">UNLOCK YOUR</span>
+            <span class="headline-script">Potential</span>
+            <span class="headline-line">WITH CHIA SEED</span>
+          </h1>
+          <p class="lead-text">Power Up Your Health,<br>One Seed at a Time.</p>
+        </div>
+
+        <div class="hero-portrait media-card tall-photo">
+          <img src="pictures/hero-img-2.jfif" alt="Healthy lifestyle visual">
+        </div>
+      </div>
+
+      <div class="catalog-right-panel">
+        <div class="rule-line"></div>
+
+        <article class="info-card sage-card reveal">
+          <div class="info-copy">
+            <h3>What are chia seeds?</h3>
+            <ul>
+              <li>Chia seeds are tiny, nutrient-dense seeds rich in fiber, omega-3 fatty acids, protein, and antioxidants.</li>
+              <li>They’re commonly added to smoothies, oatmeal, yogurt, and baked goods.</li>
+            </ul>
+          </div>
+          <div class="info-image small-packshot">
+            <img src="pictures/pr1.jpg" alt="Natural skincare visual">
+          </div>
+        </article>
+
+        <article class="info-card sage-card reveal">
+          <div class="info-copy">
+            <h3>How to use chia seeds?</h3>
+            <ul>
+              <li>You can mix them into drinks, smoothies, oatmeal, yogurt, or desserts.</li>
+              <li>They absorb liquid and form a gel, making them great for puddings too.</li>
+            </ul>
+          </div>
+          <div class="info-image small-packshot">
+            <img src="pictures/pr2.jpg" alt="Botanical product visual">
+          </div>
+        </article>
+
+        <article class="info-card sage-card reveal">
+          <div class="info-copy">
+            <h3>What are the health benefits of chia seeds?</h3>
+            <ul>
+              <li>Chia seeds help support digestion, heart health, energy, and overall wellness because they’re packed with fiber, omega-3s, and antioxidants.</li>
+            </ul>
+          </div>
+          <div class="info-image small-packshot">
+            <img src="pictures/pr7.jpg" alt="Wellness product visual">
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="coming-section reveal">
+      <div class="coming-title-block">
+        <div class="coming-main">COMING</div>
+        <div class="coming-script">soon</div>
+      </div>
+
+      <div class="coming-layout">
+        <div class="coming-left">
+          <div class="coming-product-image">
+            <img src="pictures/pr2.jpg" alt="Botanical skincare collection">
+          </div>
+
+          <div class="coming-copy-column">
+            <div class="coming-copy-image">
+              <img src="pictures/pr1.jpg" alt="Natural product detail">
+            </div>
+
+            <div class="coming-copy-text">
+              <h3>Anua Heartleaf LHA<br>Peeling Gel</h3>
+              <ul>
+                <li><strong>What does it do?</strong><br>Exfoliates gently and smooths skin.</li>
+                <li><strong>For sensitive skin?</strong><br>Yes—Heartleaf + LHA are mild.</li>
+                <li><strong>How often?</strong><br>Use 2–3 times weekly.</li>
+                <li><strong>Dry or wet skin?</strong><br>Apply on dry skin, then rinse.</li>
+                <li><strong>Use with acids?</strong><br>Avoid AHA/BHA/Retinol the same day.</li>
+                <li><strong>Brightening?</strong><br>Helps reveal smoother-looking skin.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="coming-right">
+          <div class="ingredients-panel">
+            <div class="ingredients-text-card">
+              <h3>Ingredients</h3>
+              <ul>
+                <li>Heartleaf Extract<br>(Houttuynia Cordata)</li>
+                <li>LHA (Capryloyl Salicylic Acid)</li>
+                <li>Natural Cellulose</li>
+                <li>Sodium Hyaluronate<br>(Hyaluronic Acid)</li>
+                <li>Allantoin</li>
+                <li>Aloe Leaf Extract</li>
+              </ul>
+            </div>
+
+            <div class="ingredients-image">
+              <img src="pictures/hero-img-2.jfif" alt="Green wellness visual">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-feature-section reveal">
+      <div class="catalog-feature-wrap">
+        <div class="catalog-feature-card premium-card">
+          <h3>Where Pure Aloe Meets Skin Wellness</h3>
+          <p>
+            Aloe-enriched formulas crafted to calm redness, boost
+            hydration, and restore vibrant, healthy-looking skin.
+          </p>
+        </div>
+
+        <div class="catalog-feature-outline outline-back"></div>
+        <div class="catalog-feature-outline outline-front"></div>
+
+        <div class="catalog-feature-label">
+          <span>ALOERA</span>
+          <div class="label-line"></div>
+        </div>
+
+        <div class="catalog-feature-image premium-image">
+          <img src="pictures/hero-img-2.jfif" alt="Aloe-inspired skincare visual">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">Aurevia</div>
+        <p>Your trusted destination for premium haircare and beauty essentials. We offer gentle, science-backed formulas designed to nourish, protect, and elevate your natural beauty.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <ul>
+          <li>📍 Address, Philippines</li>
+          <li>✉ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a7e6d2d5c2d1cec6efe5e7c0cac6cecb89c4c8ca">[email&#160;protected]</a></li>
+          <li>📞 +63 900 345 6789</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-icons social-icons-custom">
+          <a href="#">f</a>
+          <a href="#">ig</a>
+          <a href="#">tt</a>
+          <a href="#">x</a>
+        </div>
+        <p class="footer-mini">“Stay inspired with haircare tips, product launches, and beauty routines.”</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Join a Newsletter</h4>
+        <p style="font-size:12px;line-height:1.7;margin-bottom:12px;">Your Email</p>
+        <div class="newsletter-input-wrap">
+          <input type="email" placeholder="Enter Your Email">
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Aurevia Health &amp; Beauty. All Rights Reserved.</span>
+      <span>Clean beauty, thoughtfully curated.</span>
+    </div>
+  </footer>
+
+  <script src="catalog.js"></script>
+</body>
+</html>

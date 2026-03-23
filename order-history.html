@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order History & Wishlist – Aurevia</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="orders.css">
+</head>
+<body>
+
+  <div class="promo-bar">Buy More, Save More — <span>Up to 25% off bundles!</span></div>
+
+  <header>
+    <div class="header-inner">
+      <a href="storefront-homepage.html" class="logo">Aurevia</a>
+
+      <div class="search-bar">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input type="text" placeholder="Search for products, brands and more…" />
+      </div>
+
+      <div class="header-icons">
+        <a href="#" class="header-icon-btn" onclick="(function(){var u=JSON.parse(localStorage.getItem('aurevia_user')||'null');window.location.href=(u&&u.loggedIn)?'profile.html':'login.html';return false;})()">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Account</span>
+        </a>
+
+        <a href="order-history.html" class="header-icon-btn">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span>Wishlist</span>
+        </a>
+
+        <a href="cart.html" class="header-icon-btn">
+          <div class="cart-badge">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="badge" id="cartBadge">0</span>
+          </div>
+          <span>Cart</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="sub-nav">
+    <div class="sub-nav-inner account-nav">
+      <a href="product-catalog.html"><span>New Arrivals</span></a>
+      <a href="product-catalog.html"><span>Hair Care</span></a>
+      <a href="product-catalog.html"><span>Skin Care</span></a>
+      <a href="product-catalog.html"><span>Body Care</span></a>
+      <a href="product-catalog.html"><span>Bundles &amp; Sets</span></a>
+      <a href="product-catalog.html"><span>Gifts</span></a>
+      <a href="storefront-homepage.html"><span>About Us</span></a>
+      <a href="product-catalog.html"><span>Blog</span></a>
+    </div>
+  </div>
+
+  <main class="orders-page">
+    <div class="breadcrumb">Home / My Account / Orders &amp; Wish list</div>
+
+    <div class="orders-topbar">
+      <div class="orders-search-wrap">
+        <svg class="orders-search-icon" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-3.5-3.5"></path>
+        </svg>
+        <input id="orderSearch" class="orders-search" type="text" placeholder="Search orders...">
+      </div>
+
+      <h1 class="orders-title">Order History &amp; Wishlist</h1>
+    </div>
+
+    <div class="orders-toolbar">
+      <div class="tabs" id="orderTabs">
+        <button class="tab-btn active" data-filter="all">All</button>
+        <button class="tab-btn delivered" data-filter="delivered">Delivered</button>
+        <button class="tab-btn ship" data-filter="to-ship">To Ship</button>
+        <button class="tab-btn completed" data-filter="completed">Completed</button>
+        <button class="tab-btn returned" data-filter="returned">Returned</button>
+      </div>
+    </div>
+
+    <section class="orders-grid" id="ordersGrid">
+
+      <article class="order-card"
+        data-order-key="2026-0001" data-product-id="pr1"
+        data-status="delivered"
+        data-search="2026-0001 veloura silkshine shampoo feb 20 2026 delivered"
+        data-order-id="Order #2026-0001"
+        data-product-name="Veloura Silkshine Shampoo 250 ml"
+        data-product-image="pictures/pr1.jpg"
+        data-placed-date="Placed on Feb 20, 2026"
+        data-order-status="Delivered"
+        data-placed-price="₱250.00"
+        data-total-price="₱770.00">
+        <div class="order-top">
+          <div class="order-title-row">
+            <div>
+              <h2>Order #2026-0001</h2>
+              <p>Placed on Feb 20, 2026</p>
+            </div>
+            <span class="status delivered order-status-badge">✓ Delivered</span>
+          </div>
+        </div>
+
+        <div class="order-body">
+          <div class="order-product-image">
+            <img src="pictures/pr1.jpg" alt="Veloura Silkshine Shampoo">
+          </div>
+          <div class="order-product-info">
+            <h3>Veloura Silkshine Shampoo 250 ml</h3>
+            <p>Placed: <strong>₱250.00</strong></p>
+          </div>
+          <div class="order-product-price">₱770.00</div>
+        </div>
+
+        <div class="order-bottom">
+          <div class="order-total">Total <strong>₱770.00</strong></div>
+          <button class="order-action primary action-view">View Details</button>
+        </div>
+      </article>
+
+      <article class="order-card"
+        data-order-key="2026-0002" data-product-id="pr1"
+        data-status="to-ship"
+        data-search="2026-0002 veloura silkshine shampoo feb 21 2026 to ship"
+        data-order-id="Order #2026-0002"
+        data-product-name="Veloura Silkshine Shampoo 250 ml"
+        data-product-image="pictures/pr1.jpg"
+        data-placed-date="Placed on Feb 21, 2026"
+        data-order-status="To Ship"
+        data-placed-price="₱250.00"
+        data-total-price="₱520.00">
+        <div class="order-top">
+          <div class="order-title-row">
+            <div>
+              <h2>Order #2026-0002</h2>
+              <p>Placed on Feb 21, 2026</p>
+            </div>
+            <span class="status ship order-status-badge">📦 To Ship</span>
+          </div>
+        </div>
+
+        <div class="order-body">
+          <div class="order-product-image">
+            <img src="pictures/pr1.jpg" alt="Veloura Silkshine Shampoo">
+          </div>
+          <div class="order-product-info">
+            <h3>Veloura Silkshine Shampoo 250 ml</h3>
+            <p>Placed: <strong>₱250.00</strong></p>
+          </div>
+          <div class="order-product-price">₱1049.00</div>
+        </div>
+
+        <div class="order-bottom">
+          <div class="order-total">Total <strong>₱520.00</strong></div>
+          <div class="order-actions-inline">
+            <button class="order-action outline action-track">Track Order</button>
+            <button class="order-action primary action-buy-again">Buy Again</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="order-card"
+        data-order-key="2026-0003" data-product-id="pr7"
+        data-status="delivered"
+        data-search="2026-0003 avera hydrating cream lavender bloom feb 23 2026 delivered"
+        data-order-id="Order #2026-0003"
+        data-product-name="Avera Hydrating Cream"
+        data-product-image="pictures/pr7.jpg"
+        data-placed-date="Placed on Feb 23, 2026"
+        data-order-status="Delivered"
+        data-placed-price="₱250.00"
+        data-total-price="₱520.00">
+        <div class="order-top">
+          <div class="order-title-row">
+            <div>
+              <h2>Order #2026-0003</h2>
+              <p>Placed on Feb 23, 2026</p>
+            </div>
+            <span class="status delivered order-status-badge">✓ Delivered</span>
+          </div>
+        </div>
+
+        <div class="order-body">
+          <div class="order-product-image">
+            <img src="pictures/pr7.jpg" alt="Avera Hydrating Cream">
+          </div>
+          <div class="order-product-info">
+            <h3>Avera Hydrating Cream <span class="variant-tag">*Lavender Bloom*</span></h3>
+            <p>Placed: <strong>₱250.00</strong></p>
+          </div>
+          <div class="order-product-price">₱520.00</div>
+        </div>
+
+        <div class="order-bottom">
+          <div class="order-total">Total <strong>₱520.00</strong></div>
+          <button class="order-action primary action-view">View Details</button>
+        </div>
+      </article>
+
+      <article class="order-card"
+        data-order-key="2026-0004" data-product-id="pr7"
+        data-status="completed"
+        data-search="2026-0004 avera hydrating cream lavender bloom completed"
+        data-order-id="Order #2026-0004"
+        data-product-name="Avera Hydrating Cream"
+        data-product-image="pictures/pr7.jpg"
+        data-placed-date="Placed on Feb 24, 2026"
+        data-order-status="Completed"
+        data-placed-price="₱250.00"
+        data-total-price="₱520.00">
+        <div class="order-top">
+          <div class="order-title-row">
+            <div>
+              <h2>Order #2026-0004</h2>
+              <p>Placed on Feb 24, 2026</p>
+            </div>
+            <span class="status completed order-status-badge">Completed</span>
+          </div>
+        </div>
+
+        <div class="order-body">
+          <div class="order-product-image">
+            <img src="pictures/pr7.jpg" alt="Avera Hydrating Cream">
+          </div>
+          <div class="order-product-info">
+            <h3>Avera Hydrating Cream <span class="variant-tag">*Lavender Bloom*</span></h3>
+            <p>Placed: <strong>₱250.00</strong></p>
+          </div>
+          <div class="order-product-price">₱7990.00</div>
+        </div>
+
+        <div class="order-bottom">
+          <div class="order-total">Total <strong>₱520.00</strong></div>
+          <div class="order-actions-inline">
+            <button class="order-action outline action-track">Track Order</button>
+            <button class="order-action primary action-buy-again">Buy Again</button>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="wishlist-grid" id="wishlistGrid">
+      <article class="wishlist-card" data-wishlist-key="wish-1" data-product-id="pr7" data-name="Pure Verdant Clarifying Scalp Wash 500ml">
+        <button class="wishlist-heart active" type="button" aria-label="Remove from wishlist">♥</button>
+        <div class="wishlist-image-wrap">
+          <img src="pictures/pr7.jpg" alt="Pure Verdant Clarifying Scalp Wash">
+        </div>
+        <div class="wishlist-info">
+          <h3>Pure Verdant Clarifying<br>Scalp Wash 500ml</h3>
+          <p class="wishlist-price">₱449.00</p>
+          <div class="wishlist-stars">★★★★★</div>
+          <div class="wishlist-actions">
+            <button class="wishlist-btn add-cart">Add to Cart</button>
+            <button class="wishlist-btn remove-btn outline">Remove</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="wishlist-card" data-wishlist-key="wish-2" data-product-id="pr2" data-name="Hyacinth Moisture Recovery Conditioner 300ml">
+        <button class="wishlist-heart active" type="button" aria-label="Remove from wishlist">♥</button>
+        <div class="wishlist-image-wrap">
+          <img src="pictures/pr2.jpg" alt="Hyacinth Moisture Recovery Conditioner">
+        </div>
+        <div class="wishlist-info">
+          <h3>Hyacinth Moisture Recovery<br>Conditioner 300ml</h3>
+          <p class="wishlist-price">₱520.00</p>
+          <div class="wishlist-stars four">★★★★☆</div>
+          <div class="wishlist-actions">
+            <button class="wishlist-btn add-cart">Add to Cart</button>
+            <button class="wishlist-btn remove-btn outline">Remove</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="wishlist-card" data-wishlist-key="wish-3" data-product-id="pr5" data-name="Caramelle Nourishing Hair Cream 120ml">
+        <button class="wishlist-heart active" type="button" aria-label="Remove from wishlist">♥</button>
+        <div class="wishlist-image-wrap">
+          <img src="pictures/pr5.jpg" alt="Caramelle Nourishing Hair Cream">
+        </div>
+        <div class="wishlist-info">
+          <h3>Caramelle Nourishing Hair<br>Cream 120ml</h3>
+          <p class="wishlist-price">₱285.00</p>
+          <div class="wishlist-stars four">★★★★☆</div>
+          <div class="wishlist-actions">
+            <button class="wishlist-btn add-cart">Add to Cart</button>
+            <button class="wishlist-btn remove-btn outline">Remove</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="wishlist-card" data-wishlist-key="wish-4" data-product-id="pr8" data-name="Radiance Color Care Conditioner 250ml">
+        <button class="wishlist-heart active" type="button" aria-label="Remove from wishlist">♥</button>
+        <div class="wishlist-image-wrap">
+          <img src="pictures/pr8.jpg" alt="Radiance Color Care Conditioner">
+        </div>
+        <div class="wishlist-info">
+          <h3>Radiance Color Care<br>Conditioner 250ml</h3>
+          <p class="wishlist-price">₱395.00</p>
+          <div class="wishlist-stars">★★★★★</div>
+          <div class="wishlist-actions">
+            <button class="wishlist-btn add-cart">Add to Cart</button>
+            <button class="wishlist-btn remove-btn outline">Remove</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <p class="shipping-note">Free Shipping for orders ₱1000 and above!</p>
+
+    <div class="order-modal hidden" id="orderModal">
+      <div class="order-modal-backdrop" id="orderModalBackdrop"></div>
+      <div class="order-modal-card">
+        <button class="order-modal-close" id="orderModalClose" aria-label="Close modal">×</button>
+        <h3>Order Details</h3>
+        <p class="modal-order-id" id="modalOrderId">Order #2026-0001</p>
+
+        <div class="modal-product-row">
+          <img id="modalProductImg" src="pictures/pr1.jpg" alt="Product image">
+          <div>
+            <h4 id="modalProductName">Veloura Silkshine Shampoo 250 ml</h4>
+            <p id="modalPlacedDate">Placed on Feb 20, 2026</p>
+            <p id="modalStatus">Status: Delivered</p>
+            <p id="modalPlacedPrice">Placed: ₱250.00</p>
+            <p id="modalTotalPrice">Total: ₱770.00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-modal hidden" id="trackModal">
+      <div class="order-modal-backdrop" id="trackModalBackdrop"></div>
+      <div class="order-modal-card narrow">
+        <button class="order-modal-close" id="trackModalClose" aria-label="Close modal">×</button>
+        <h3>Track Order</h3>
+        <p class="modal-order-id" id="trackOrderId">Order #2026-0002</p>
+
+        <div class="tracking-steps">
+          <div class="tracking-step done">
+            <span class="dot"></span>
+            <div>
+              <strong>Order Confirmed</strong>
+              <p>Your order has been received.</p>
+            </div>
+          </div>
+          <div class="tracking-step done">
+            <span class="dot"></span>
+            <div>
+              <strong>Packed</strong>
+              <p>Your items are packed and ready.</p>
+            </div>
+          </div>
+          <div class="tracking-step active">
+            <span class="dot"></span>
+            <div>
+              <strong>In Transit</strong>
+              <p>Expected arrival in 2–4 working days.</p>
+            </div>
+          </div>
+          <div class="tracking-step">
+            <span class="dot"></span>
+            <div>
+              <strong>Delivered</strong>
+              <p>Waiting for final delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-modal hidden" id="buyAgainModal">
+      <div class="order-modal-backdrop" id="buyAgainBackdrop"></div>
+      <div class="order-modal-card narrow">
+        <button class="order-modal-close" id="buyAgainClose" aria-label="Close modal">×</button>
+        <h3>Buy Again</h3>
+        <p class="modal-order-id" id="buyAgainOrderId">Order #2026-0002</p>
+        <p class="confirm-copy">This item will be added to your cart again.</p>
+        <div class="confirm-actions">
+          <button class="order-action outline" id="buyAgainCancel">Cancel</button>
+          <button class="order-action primary" id="buyAgainConfirm">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">Aurevia</div>
+        <p>Aurevia Health & Beauty rooted in nature. Certified organic skincare and wellness products for a cleaner, more conscious lifestyle.</p>
+        <div class="social-icons" style="margin-top: 20px;">
+          <a href="#">f</a>
+          <a href="#">in</a>
+          <a href="#">ig</a>
+          <a href="#">yt</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <ul>
+          <li>📍 Makati, Philippines</li>
+          <li>📞 +63 917 123 4567</li>
+          <li>✉ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c6aea3aaaaa986a7b3b4a3b0afa7e8b6ae">[email&#160;protected]</a></li>
+          <li>Mon–Sat, 9AM–6PM</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <ul>
+          <li>Facebook</li>
+          <li>Instagram</li>
+          <li>Pinterest</li>
+          <li>YouTube</li>
+          <li>TikTok</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="font-size:12px;line-height:1.6;margin-bottom:12px;">Subscribe and get exclusive deals, beauty tips, and new arrivals first.</p>
+        <div class="newsletter-input-wrap">
+          <input type="email" placeholder="Your email address" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Aurevia Health &amp; Beauty. All rights reserved.</span>
+      <span>Privacy Policy · Terms &amp;
+    <span>Privacy Policy · Terms &amp; Conditions · Cookie Settings</span>
+  </div>
+</footer>
+
+<script src="orders.js"></script>
+</body>
+</html>

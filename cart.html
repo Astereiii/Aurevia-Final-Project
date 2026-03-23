@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart – Aurevia</title>
+<link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+<header>
+  <a href="storefront-homepage.html">←</a>
+  <h1>Shopping Cart</h1>
+  <div class="cart-icon">🛒</div>
+</header>
+
+<main>
+
+  <!-- LEFT: Cart Items (rendered by cart.js) -->
+  <section class="cart-items">
+    <div id="cartItems"></div>
+    <div id="emptyCart" class="empty-cart" style="display:none;">
+      <p>Your cart is empty.</p>
+      <a href="storefront-homepage.html" class="btn-shop">Continue Shopping →</a>
+    </div>
+  </section>
+
+  <!-- RIGHT: Order Summary -->
+  <aside class="order-summary">
+    <h2>Order Summary</h2>
+    <div class="summary-row">
+      <p>Subtotal</p>
+      <span id="subtotal">₱0.00</span>
+    </div>
+    <div class="summary-row">
+      <p>Shipping</p>
+      <span>₱50.00</span>
+    </div>
+    <hr>
+    <div class="summary-row total">
+      <p>Total</p>
+      <span id="total">₱50.00</span>
+    </div>
+    <button class="checkout-btn" onclick="window.location.href='checkout.html'">Proceed To Checkout</button>
+  </aside>
+
+</main>
+
+<script src="cart.js"></script>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Aurevia</div>
+      <p>Aurevia Health & Beauty rooted in nature. Certified organic skincare and wellness products for a cleaner, more conscious lifestyle.</p>
+      <div class="social-icons" style="margin-top: 20px;">
+        <a href="#">f</a>
+        <a href="#">in</a>
+        <a href="#">ig</a>
+        <a href="#">yt</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <ul>
+        <li>📍 Makati, Philippines</li>
+        <li>📞 +63 917 123 4567</li>
+        <li>✉ hello@aurevia.ph</li>
+        <li>Mon–Sat, 9AM–6PM</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul>
+        <li>Facebook</li>
+        <li>Instagram</li>
+        <li>Pinterest</li>
+        <li>YouTube</li>
+        <li>TikTok</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <p style="font-size:12px;line-height:1.6;margin-bottom:12px;">Subscribe and get exclusive deals, beauty tips, and new arrivals first.</p>
+      <div class="newsletter-input-wrap">
+        <input type="email" placeholder="Your email address" />
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Aurevia Health &amp; Beauty. All rights reserved.</span>
+    <span>Privacy Policy · Terms &amp; Conditions · Cookie Settings</span>
+  </div>
+</footer>
+</body>
+</html>
