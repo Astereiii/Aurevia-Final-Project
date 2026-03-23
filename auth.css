@@ -1,0 +1,306 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sage: #8a9e7b;
+  --sage-dark: #6b7f5e;
+  --warm-brown: #6b4f3a;
+  --cream: #f7f3ee;
+  --charcoal: #2e2e2e;
+  --mid-gray: #6e6e6e;
+  --light-gray: #e8e3dc;
+  --white: #ffffff;
+  --font: 'Inclusive Sans', sans-serif;
+  --shadow: 0 8px 40px rgba(0,0,0,0.18);
+}
+
+body {
+  font-family: var(--font);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ── BACKGROUND ── */
+.auth-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  /* Fallback gradient always visible, image loads on top if present */
+  background: linear-gradient(135deg, #c8d5bf 0%, #d4c9be 50%, #e8ddd4 100%);
+  background-image: url('pictures/bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.bg-img {
+  /* Hide the <img> tag — background is handled by CSS above */
+  display: none;
+}
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(46, 46, 46, 0.35);
+}
+
+/* ── WRAPPER ── */
+.auth-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  padding: 24px 16px;
+  animation: fadeInUp 0.5s ease both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── CARD ── */
+.auth-card {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.auth-logo-btn {
+  display: inline-block;
+  background: var(--sage);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 7px 18px;
+  border-radius: 0 0 10px 0;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.auth-logo-btn:hover { background: var(--sage-dark); }
+
+.auth-card-body {
+  padding: 20px 36px 32px;
+}
+
+.auth-subtitle {
+  font-size: 12px;
+  color: var(--mid-gray);
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.auth-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--charcoal);
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.auth-title-line {
+  width: 40px;
+  height: 2px;
+  background: var(--sage);
+  margin: 8px auto 24px;
+  border-radius: 2px;
+}
+
+/* ── FORM ── */
+.auth-form { display: flex; flex-direction: column; gap: 14px; }
+
+.form-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--mid-gray);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 11px 40px 11px 36px;
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--charcoal);
+  background: #faf9f7;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(138,158,123,0.15);
+  background: var(--white);
+}
+
+.form-group input::placeholder { color: #b0a898; }
+
+.toggle-pw {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--mid-gray);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  transition: color 0.2s;
+}
+.toggle-pw:hover { color: var(--sage); }
+
+/* ── FORGOT ROW ── */
+.forgot-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -4px;
+}
+.forgot-link {
+  font-size: 11px;
+  color: var(--sage);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.forgot-link:hover { color: var(--warm-brown); }
+
+/* ── BUTTONS ── */
+.btn-auth {
+  width: 100%;
+  padding: 12px;
+  background: var(--sage);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 2px;
+}
+.btn-auth:hover { background: var(--sage-dark); transform: translateY(-1px); }
+.btn-auth:active { transform: translateY(0); }
+
+.btn-google {
+  width: 100%;
+  padding: 11px;
+  background: var(--white);
+  color: var(--charcoal);
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+.btn-google:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+  transform: translateY(-1px);
+}
+
+/* ── DIVIDER ── */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--mid-gray);
+  font-size: 11px;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--light-gray);
+}
+
+/* ── SWITCH LINK ── */
+.auth-switch {
+  text-align: center;
+  font-size: 12px;
+  color: var(--mid-gray);
+  margin-top: 2px;
+}
+.auth-switch a {
+  color: var(--sage);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.auth-switch a:hover { color: var(--warm-brown); }
+
+/* ── ERROR STATE ── */
+.form-group input.error {
+  border-color: #e07070;
+  box-shadow: 0 0 0 3px rgba(224,112,112,0.12);
+}
+.error-msg {
+  font-size: 11px;
+  color: #c0392b;
+  margin-top: -8px;
+  padding-left: 4px;
+  display: none;
+}
+.error-msg.visible { display: block; }
+
+/* ── SUCCESS STATE ── */
+.btn-auth.success {
+  background: #5a8a5a;
+  pointer-events: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .auth-card-body { padding: 16px 20px 24px; }
+  .auth-title { font-size: 24px; }
+}
+
+/* ── FORGOT PASSWORD ── */
+.success-icon {
+  width: 64px;
+  height: 64px;
+  background: #eef4eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto;
+  color: var(--sage);
+}
+.resend-note {
+  font-size: 12px;
+  color: var(--mid-gray);
+  margin-top: 12px;
+}
+.resend-btn {
+  background: none;
+  border: none;
+  color: var(--sage);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font);
+  padding: 0;
+  transition: color 0.2s;
+}
+.resend-btn:hover { color: var(--warm-brown); }
+.resend-btn:disabled { color: var(--mid-gray); cursor: default; }
